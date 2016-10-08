@@ -70,7 +70,7 @@ predictions[predictions <=.5] = 0
 #calculate accurate to evaluate
 accuracy = sum(predictions[predictions == titanic["Survived"]]) / len(predictions)
 
-print accuracy 	
+print("Accuracy - linear regression is %s " % accuracy)
 	
 	
 	
@@ -81,8 +81,8 @@ alg = LogisticRegression(random_state=1)
 # Compute the accuracy score for all the cross validation folds.  (much simpler than what we did before!)
 scores = cross_validation.cross_val_score(alg, titanic[predictors], titanic["Survived"], cv=3)
 # Take the mean of the scores (because we have one for each fold)
-print(scores.mean())
-
+#print(scores.mean())
+print("Average score for Logistic Regression is %s  " % scores.mean())
 
 
 ##### Test Set ####
@@ -110,8 +110,8 @@ mrs -> 2
 ...
 '''
 #show attributes
-print(titanic_test.head(5))
-print(titanic_test.describe())
+#print(titanic_test.head(5))
+#print(titanic_test.describe())
 
 
 ##### Submission ####
@@ -127,4 +127,4 @@ submission = pd.DataFrame({
         "Survived": predictions
     })
     
-print submission
+
